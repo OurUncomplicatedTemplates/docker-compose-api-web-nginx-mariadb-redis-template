@@ -1,0 +1,8 @@
+version: '3'
+services:
+    web:
+        build:
+            target: prod
+    api:
+        build:
+            target: prod

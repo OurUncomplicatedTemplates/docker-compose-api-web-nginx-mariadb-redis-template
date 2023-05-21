@@ -1,0 +1,43 @@
+version: '3'
+services:
+    nginx:
+        restart: unless-stopped
+        build:
+            context: './nginx'
+        ports:
+            - '80:80'
+            - '443:443'
+        networks:
+            - network
+        depends_on:
+            - web
+            - api
+    redis:
+        image: redis:7.0-bullseye
+        restart: always
+        ports:
+            - '127.0.0.1:6379:6379'
+        networks:
+            - network
+        command: redis-server --loglevel warning
+    web:
+        restart: unless-stopped
+        build:
+            context: './web'
+            dockerfile: 'Dockerfile'
+        networks:
+            - network
+        depends_on:
+            - api
+    api:
+        restart: unless-stopped
+        build:
+            context: './api'
+            dockerfile: 'Dockerfile'
+        networks:
+            - network
+        depends_on:
+            - redis
+networks:
+    network:
+        driver: bridge
