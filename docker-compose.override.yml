@@ -21,6 +21,9 @@ services:
             target: dev
         volumes:
             - './web:/usr/src/app'
+        tmpfs: /tmp
+        ports:
+            - '5173:5173'
     api:
         build:
             target: dev
