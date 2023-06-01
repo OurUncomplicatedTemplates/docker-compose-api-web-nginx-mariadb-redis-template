@@ -18,6 +18,9 @@ pnpm install --shamefully-hoist
 docker-compose up --build -d
 ```
 ```bash
+pnpm -r run migrate:dev
+```
+```bash
 pnpm -r run dev
 ```
 
