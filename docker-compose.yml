@@ -1,21 +1,18 @@
 version: '3'
 services:
-    mariadb:
-        restart: unless-stopped
-        image: 'mariadb:10'
-        ports:
-            - '3306:3306'
+    db:
+        image: postgres:15.3-alpine
+        restart: always
         environment:
-            MYSQL_ROOT_PASSWORD: 'root'
-            MYSQL_ROOT_HOST: "%"
-            MYSQL_DATABASE: 'db'
-            MYSQL_USER: 'user'
-            MYSQL_PASSWORD: 'password'
-        volumes:
-            - 'mariadb:/var/lib/mysql'
-            - './mariadb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d'
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=root
+        ports:
+            - '5432:5432'
         networks:
             - network
+        volumes: 
+            - db:/var/lib/postgresql/data
+            - ./db/init.sql:/docker-entrypoint-initdb.d/setup.sql
     redis:
         image: redis:7.0-bullseye
         restart: always
@@ -28,5 +25,5 @@ networks:
     network:
         driver: bridge
 volumes:
-    mariadb:
+    db:
         driver: local
