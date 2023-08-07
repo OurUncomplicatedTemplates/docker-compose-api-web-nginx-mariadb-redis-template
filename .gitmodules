@@ -1,6 +1,6 @@
 [submodule "api"]
 	path = api
-	url = git@github.com:kristianbinau/fastify-prisma-redis-swagger-jwt-template.git
+	url = git@github.com:OurUncomplicatedTemplates/fastify-prisma-redis-swagger-jwt-template.git
 [submodule "web"]
 	path = web
-	url = git@github.com:kristianbinau/nuxt-jwt-template.git
+	url = git@github.com:OurUncomplicatedTemplates/nuxt-jwt-template.git
