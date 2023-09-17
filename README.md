@@ -10,7 +10,7 @@ All the containers run on their own seperated network. The network is configured
 - Add .env files
 
 ```bash
-pnpm install --shamefully-hoist
+pnpm install
 ```
 
 ##### Start
