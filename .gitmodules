@@ -1,3 +1,6 @@
 [submodule "api"]
 	path = api
 	url = git@github.com:OurUncomplicatedTemplates/fastify-prisma-redis-swagger-jwt-template.git
+[submodule "web"]
+	path = web
+	url = git@github.com:OurUncomplicatedTemplates/astro-vue-tailwind-jwt-template.git
