@@ -10,7 +10,7 @@ All the containers run on their own seperated network. The network is configured
 - Add .env files
 
 ```bash
-pnpm install --shamefully-hoist
+pnpm install
 ```
 
 ##### Start
@@ -44,7 +44,7 @@ docker volume prune
 
 ##### Logs
 ```bash
-docker-compose logs -f mariadb
+docker-compose logs -f db
 ```
 ```bash
 docker-compose logs -f redis
@@ -52,16 +52,16 @@ docker-compose logs -f redis
 
 ##### SSH
 ```bash
-docker-compose exec mariadb /bin/bash
+docker-compose exec db /bin/bash
 ```
 ```bash
 docker-compose exec redis /bin/bash
 ```
 
-### mariadb
-This container is running our mariadb server.  
+### db
+This container is running our postgres server.  
 
-Port 3306 is exposed to the host.  
+Port 5432 is exposed to the host.  
 
 ### redis
 The container running our redis caching server.  
